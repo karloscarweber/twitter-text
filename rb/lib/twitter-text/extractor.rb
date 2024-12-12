@@ -19,7 +19,7 @@ class String
 
   # Helper function to convert this string into an array of unicode code points.
   def to_codepoint_a
-    @to_codepoint_a ||= if chars.kind_of?(Enumerable)
+    if chars.kind_of?(Enumerable)
       chars.to_a
     else
       codepoint_array = []

@@ -201,7 +201,7 @@ class ConformanceTest < Test::Unit::TestCase
 
   # Validation Conformance
   def_conformance_test("validate.yml", :tweets) do
-    assert_equal expected, valid_tweet_text?(text), description
+    assert_equal expected, parse_tweet(text)[:valid], description
   end
 
   def_conformance_test("validate.yml", :usernames) do

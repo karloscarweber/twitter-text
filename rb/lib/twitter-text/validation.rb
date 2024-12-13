@@ -118,7 +118,7 @@ module Twitter
 
         normalized_text_offset = text.codepoint_length - normalized_text.codepoint_length
         scaled_weighted_length = weighted_count / scale
-        is_valid = !has_invalid_chars && (scaled_weighted_length <= max_weighted_tweet_length)
+        is_valid = !has_invalid_chars && (scaled_weighted_length <= max_weighted_tweet_length) && (scaled_weighted_length != 0)
         permillage = scaled_weighted_length * 1000 / max_weighted_tweet_length
 
         return ParseResults.new(weighted_length: scaled_weighted_length, permillage: permillage, valid: is_valid, display_range_start: 0, display_range_end: (display_offset + normalized_text_offset - 1), valid_range_start: 0, valid_range_end: (valid_offset + normalized_text_offset - 1))
